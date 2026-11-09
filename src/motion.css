@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Motion — simple, calm animations (18–19 Oct)
+   Turned off for anyone who has "reduce motion" set on their phone/computer.
+   ========================================================================== */
+
+/* Pages fade up as they open. The page ends with no transform, so pop-up
+   windows inside a page (position: fixed) still cover the whole screen. */
+.page-enter { animation: pageIn 0.38s ease-out backwards; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* Tap feedback: buttons, cards and choices press in slightly */
+.mobile-action-card, .btn, .service-card-clean, .buddy-option, .filter-tab, .pr-choice, .pr-tab, .chatbuddy__quick-btn,
+.trust-card-glass, .bottom-nav a, .glass-card[role='button'], .faq-question, .segment-tab {
+  -webkit-tap-highlight-color: transparent;
+}
+.mobile-action-card:active, .trust-card-glass:active, .btn:active, .buddy-option:active, .filter-tab:active, .pr-choice:active, .pr-tab:active, .chatbuddy__quick-btn:active,
+.bottom-nav a:active, .faq-question:active, .segment-tab:active {
+  transform: scale(0.96);
+  transition: transform 0.08s ease-out;
+}
+.service-card-clean:active, .glass-card[role='button']:active { transform: scale(0.98); transition: transform 0.08s ease-out; }
+
+/* Kalamkari sun while a page loads */
+.page-loader { display: grid; place-items: center; min-height: 40vh; }
+.page-loader--full { min-height: 100vh; background: var(--bg-primary, #FFFBF2); }
+.kk-sun__rays { transform-origin: 50px 50px; animation: kkSunTurn 3.2s linear infinite; }
+.kk-sun { animation: kkSunBreathe 1.6s ease-in-out infinite; }
+@keyframes kkSunTurn { to { transform: rotate(360deg); } }
+@keyframes kkSunBreathe { 0%, 100% { opacity: 0.75; transform: scale(0.94); } 50% { opacity: 1; transform: scale(1); } }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Soft shimmer for "Loading…" placeholders */
+.kk-shimmer {
+  color: transparent !important;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #F4E3C1 20%, #FFF6E5 40%, #F4E3C1 60%) 0 0 / 300% 100%;
+  animation: kkShimmer 1.4s ease-in-out infinite;
+  min-height: 1.4em;
+}
+@keyframes kkShimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+/* Success celebration (utils/celebrate.js) */
+.celebrate { position: fixed; left: 50%; top: 45%; z-index: 20000; pointer-events: none; }
+.celebrate__tick { position: absolute; transform: translate(-50%, -50%); animation: celebrateTick 1.8s ease-out forwards; filter: drop-shadow(0 6px 16px rgba(19, 136, 8, 0.35)); }
+.celebrate i { position: absolute; width: 9px; height: 14px; border-radius: 2px; left: -4px; top: -7px; animation: celebrateBurst 1.5s cubic-bezier(0.15, 0.7, 0.3, 1) forwards; }
+@keyframes celebrateTick {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+  18% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+  30% { transform: translate(-50%, -50%) scale(1); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+}
+@keyframes celebrateBurst {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0); }
+  70% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), calc(var(--dy) + 120px)) rotate(var(--rot)); }
+}
+
+/* Respect "reduce motion" everywhere on the site */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .celebrate__tick { animation: none; transform: translate(-50%, -50%); }
+}

@@ -1,0 +1,107 @@
+/* ---------- City: "Where do you need help?" window and the 📍 city button ---------- */
+.city-overlay {
+  position: fixed; inset: 0; z-index: 3000;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 0;
+  animation: cityFade 0.2s ease-out;
+}
+@media (min-width: 640px) {
+  .city-overlay { align-items: center; padding: 1.5rem; }
+}
+.city-dialog {
+  position: relative;
+  width: 100%; max-width: 520px; max-height: 92vh; overflow-y: auto;
+  background: var(--bg-card);
+  border-radius: 22px 22px 0 0;
+  padding: 1.6rem 1.4rem 1.2rem;
+  box-shadow: var(--shadow-lg);
+  border-top: 5px solid var(--accent-teal);
+  animation: cityUp 0.28s cubic-bezier(.2,.9,.3,1);
+}
+@media (min-width: 640px) { .city-dialog { border-radius: 22px; padding: 2rem 2rem 1.4rem; } }
+.city-dialog h2 { display: flex; align-items: center; gap: 0.5rem; font-size: 1.45rem; margin: 0 2rem 0.35rem 0; color: var(--text-primary); }
+.city-dialog h2 svg { color: var(--accent-teal-dark); flex: none; }
+.city-sub { color: var(--text-secondary); margin: 0 0 1.1rem; line-height: 1.5; }
+.city-close {
+  position: absolute; top: 0.9rem; right: 0.9rem; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--bg-surface); color: var(--text-secondary); border: none; cursor: pointer;
+}
+.city-close:hover, .city-close:focus-visible { background: var(--accent-teal-light); color: var(--accent-teal-dark); }
+.city-locate { width: 100%; justify-content: center; min-height: 48px; }
+.city-locate:disabled { opacity: 0.75; cursor: progress; }
+.city-small { font-size: 0.82rem; color: var(--text-secondary); margin: 0.45rem 0 0; line-height: 1.45; }
+.city-status { margin: 0.8rem 0 0; padding: 0.7rem 0.9rem; border-radius: 12px; font-size: 0.92rem; line-height: 1.45; }
+.city-status--warn { background: #FFF7ED; color: #9A3412; }
+.city-status--soon { background: var(--accent-gold-light); color: #0F5A06; }
+.city-h3 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin: 1.4rem 0 0.6rem; }
+.city-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.city-option {
+  width: 100%; text-align: left; cursor: pointer;
+  display: grid; grid-template-columns: 1fr auto; grid-template-areas: 'name tag' 'region tag'; column-gap: 0.75rem;
+  padding: 0.85rem 1rem; border-radius: 14px; background: var(--bg-card);
+  border: 1.5px solid var(--border); transition: border-color var(--transition-fast), background var(--transition-fast);
+  min-height: 56px;
+}
+.city-option:hover, .city-option:focus-visible { border-color: var(--accent-teal); background: var(--accent-teal-light); }
+.city-option.is-selected { border-color: var(--accent-gold); background: var(--accent-gold-light); }
+.city-option.is-soon { border-style: dashed; }
+.city-option__name { grid-area: name; font-weight: 700; font-size: 1.05rem; color: var(--text-primary); }
+.city-option__region { grid-area: region; font-size: 0.85rem; color: var(--text-secondary); }
+.city-tag { grid-area: tag; align-self: center; display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.78rem; font-weight: 700; color: var(--accent-gold); white-space: nowrap; }
+.city-tag--soon { color: var(--text-secondary); }
+.city-link { margin-top: 1rem; background: none; border: none; padding: 0.4rem 0; font: inherit; font-weight: 700; color: var(--accent-blue); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.city-form { margin-top: 0.2rem; display: grid; gap: 0.7rem; }
+.city-form label { display: grid; gap: 0.3rem; font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+.city-form input {
+  font: inherit; font-weight: 400; padding: 0.7rem 0.9rem; border-radius: 12px; border: 1.5px solid var(--border);
+  background: var(--bg-card); color: var(--text-primary); min-height: 46px;
+}
+.city-form input:focus { outline: none; border-color: var(--accent-teal); box-shadow: 0 0 0 3px var(--accent-teal-glow); }
+.city-form__row { display: grid; gap: 0.7rem; }
+@media (min-width: 520px) { .city-form__row { grid-template-columns: 1fr 1fr; } }
+.city-form .btn { justify-content: center; }
+.city-later { display: block; width: 100%; margin-top: 1rem; padding: 0.7rem; background: none; border: none; font: inherit; color: var(--text-secondary); cursor: pointer; }
+.city-later:hover, .city-later:focus-visible { color: var(--text-primary); text-decoration: underline; }
+
+/* 📍 city button in the menu bar and on the phone home page */
+.city-chip {
+  display: inline-flex; align-items: center; gap: 0.3rem; max-width: 12rem;
+  font: inherit; font-weight: 700; font-size: 0.9rem; cursor: pointer; white-space: nowrap;
+  padding: 0.4rem 0.8rem; border-radius: 999px; border: 1.5px solid var(--accent-teal);
+  background: #fff; color: var(--accent-teal-dark); min-height: 36px;
+}
+.city-chip span { overflow: hidden; text-overflow: ellipsis; }
+.city-chip svg { flex: none; }
+.city-chip:hover, .city-chip:focus-visible { background: var(--accent-teal-light); }
+
+@keyframes cityFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cityUp { from { transform: translateY(24px); opacity: 0.6; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .city-overlay, .city-dialog { animation: none; }
+}
+
+/* Small version under the logo in the menu bar */
+.nav-brand { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+.city-chip.city-chip--mini {
+  border: none; background: transparent; padding: 0.1rem 0; min-height: 26px; font-size: 0.8rem; font-weight: 700; gap: 0.2rem;
+  color: var(--accent-teal-dark);
+}
+.city-chip.city-chip--mini:hover, .city-chip.city-chip--mini:focus-visible { background: transparent; text-decoration: underline; }
+@media (max-width: 768px) {
+  .nav-brand { margin: 0 auto; align-items: center; }
+}
+
+/* A page the customer's city has switched off (Admin → Cities → Pages) */
+.not-in-city {
+  min-height: 70vh; padding-top: 120px; padding-bottom: 4rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.not-in-city__icon {
+  width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 1rem;
+  background: var(--accent-teal-light); color: var(--accent-teal-dark);
+}
+.not-in-city h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 0.75rem; max-width: 640px; }
+.not-in-city p { color: var(--text-secondary); max-width: 520px; margin: 0 0 1.6rem; line-height: 1.6; }
+.not-in-city__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+.not-in-city__actions .btn { display: inline-flex; align-items: center; gap: 0.4rem; }

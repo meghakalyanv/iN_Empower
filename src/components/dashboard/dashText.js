@@ -1,0 +1,46 @@
+/** English / Telugu text for the customer dashboard (website). */
+export const DASH_TEXT = {
+  en: {
+    loading: 'Loading your dashboard…', overview: 'Overview', requests: 'My Requests', workshops: 'My Workshops',
+    jobs: 'Part-time Jobs', workshopsLink: 'Workshops', postJob: 'Post a Job', browse: 'Browse Services', logout: 'Logout',
+    justNow: 'Just now', minAgo: '{n} min ago', hrAgo: '{n} hr ago', dayAgo: '{n} day ago', daysAgo: '{n} days ago',
+    actApply: 'Applied for Part-time Job', actPost: 'Posted a Job Offer', actWorkshop: 'Registered for Workshop', actService: 'Service Request',
+    stService: 'Service Requests', stApply: 'Job Applications', stWorkshop: 'Workshops Joined', stPost: 'Jobs Posted',
+    welcome: 'Welcome back, {name}! 🙏', you: 'friend', summary: "Here's a summary of your activity with iN Empower.",
+    recent: 'Recent Activity', loadingShort: 'Loading…', status: 'Status',
+    noActivity: 'No activity yet. Request a service, apply for a job, register for a workshop, or post a job offer to get started!',
+    bApplied: 'Applied', bPosted: 'Posted', bService: 'Service', bRequest: 'Request',
+    loadingReq: 'Loading your requests…', noReq: 'No requests yet',
+    noReqText: 'When you request a service, apply for a part-time job or post a job offer while signed in, it will appear here.',
+    browseArrow: 'Browse Services →', browseJobs: 'Browse Jobs', youSent: 'You sent this request', progress: 'Progress',
+    fromUs: 'Message from iN Empower: ', questions: 'Questions? Call or WhatsApp us on',
+    noWs: 'No workshops registered', noWsText: 'Explore our life skills workshops — from farming to yoga — and register to start your learning journey.',
+    exploreWs: 'Explore Workshops →', browseWs: 'Browse Workshops', registeredOn: 'Registered on {date}',
+    wsSubmitted: 'Registration Submitted', wsReview: 'Under Review',
+    'st:Submitted': 'Submitted', 'st:In Review': 'In Review', 'st:Confirmed': 'Confirmed', 'st:In Progress': 'In Progress',
+    'st:Completed': 'Completed', 'st:Closed': 'Closed', 'st:Cancelled': 'Cancelled', 'st:New': 'New',
+  },
+  te: {
+    loading: 'మీ డాష్‌బోర్డ్ లోడ్ అవుతోంది…', overview: 'సారాంశం', requests: 'నా అభ్యర్థనలు', workshops: 'నా వర్క్‌షాప్‌లు',
+    jobs: 'పార్ట్-టైమ్ ఉద్యోగాలు', workshopsLink: 'వర్క్‌షాప్‌లు', postJob: 'ఉద్యోగం పోస్ట్ చేయండి', browse: 'సేవలు చూడండి', logout: 'లాగ్ అవుట్',
+    justNow: 'ఇప్పుడే', minAgo: '{n} నిమిషాల క్రితం', hrAgo: '{n} గంటల క్రితం', dayAgo: '{n} రోజు క్రితం', daysAgo: '{n} రోజుల క్రితం',
+    actApply: 'పార్ట్-టైమ్ ఉద్యోగానికి దరఖాస్తు', actPost: 'ఉద్యోగ ప్రకటన పోస్ట్ చేశారు', actWorkshop: 'వర్క్‌షాప్‌లో నమోదు', actService: 'సేవ అభ్యర్థన',
+    stService: 'సేవ అభ్యర్థనలు', stApply: 'ఉద్యోగ దరఖాస్తులు', stWorkshop: 'చేరిన వర్క్‌షాప్‌లు', stPost: 'పోస్ట్ చేసిన ఉద్యోగాలు',
+    welcome: 'మళ్ళీ స్వాగతం, {name}! 🙏', you: 'మిత్రమా', summary: 'iN Empower తో మీ కార్యకలాపాల సారాంశం ఇది.',
+    recent: 'ఇటీవలి కార్యకలాపాలు', loadingShort: 'లోడ్ అవుతోంది…', status: 'స్థితి',
+    noActivity: 'ఇంకా ఏమీ లేదు. ఒక సేవ అడగండి, ఉద్యోగానికి దరఖాస్తు చేయండి, వర్క్‌షాప్‌లో చేరండి లేదా ఉద్యోగ ప్రకటన పోస్ట్ చేయండి!',
+    bApplied: 'దరఖాస్తు', bPosted: 'పోస్ట్', bService: 'సేవ', bRequest: 'అభ్యర్థన',
+    loadingReq: 'మీ అభ్యర్థనలు లోడ్ అవుతున్నాయి…', noReq: 'ఇంకా అభ్యర్థనలు లేవు',
+    noReqText: 'సైన్ ఇన్ అయి ఉండి మీరు సేవ అడిగినా, ఉద్యోగానికి దరఖాస్తు చేసినా, ఉద్యోగ ప్రకటన పోస్ట్ చేసినా — అది ఇక్కడ కనిపిస్తుంది.',
+    browseArrow: 'సేవలు చూడండి →', browseJobs: 'ఉద్యోగాలు చూడండి', youSent: 'మీరు ఈ అభ్యర్థన పంపారు', progress: 'పురోగతి',
+    fromUs: 'iN Empower నుంచి సందేశం: ', questions: 'ప్రశ్నలు ఉన్నాయా? ఫోన్ లేదా వాట్సాప్ చేయండి:',
+    noWs: 'ఏ వర్క్‌షాప్‌లోనూ నమోదు కాలేదు', noWsText: 'వ్యవసాయం నుంచి యోగా వరకు — మా జీవన నైపుణ్యాల వర్క్‌షాప్‌లు చూసి, నమోదు చేసుకోండి.',
+    exploreWs: 'వర్క్‌షాప్‌లు చూడండి →', browseWs: 'వర్క్‌షాప్‌లు చూడండి', registeredOn: '{date} న నమోదు',
+    wsSubmitted: 'నమోదు పంపబడింది', wsReview: 'పరిశీలనలో ఉంది',
+    'st:Submitted': 'పంపబడింది', 'st:In Review': 'పరిశీలనలో', 'st:Confirmed': 'నిర్ధారించబడింది', 'st:In Progress': 'పని జరుగుతోంది',
+    'st:Completed': 'పూర్తయింది', 'st:Closed': 'ముగిసింది', 'st:Cancelled': 'రద్దు', 'st:New': 'కొత్తది',
+  },
+}
+
+/** Status words come from the database in English; show them in the chosen language. */
+export const statusText = (t, status) => { const k = `st:${status}`; const s = t(k); return s === k ? status : s }

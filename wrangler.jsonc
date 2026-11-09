@@ -1,0 +1,10 @@
+{
+  // iN Empower website on Cloudflare Workers (static assets only, no server code).
+  // Deploy with "Put website online.bat" in the iN Empower1.1 folder.
+  "name": "inempower",
+  "compatibility_date": "2026-11-08",
+  "assets": {
+    "directory": "./dist/",
+    "not_found_handling": "single-page-application"
+  }
+}
